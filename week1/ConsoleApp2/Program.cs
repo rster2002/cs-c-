@@ -12,14 +12,11 @@ namespace ConsoleApp2
         {
 
             Console.WriteLine("Give your age:");
-            string ageInput = Console.ReadLine();
+            int age = int.Parse(Console.ReadLine());
 
-            int age = int.Parse(ageInput);
+            age *= 10;
 
-            age = age + 1;
-
-            string output = age.ToString();
-            Console.WriteLine($"Next year your age is {age}");
+            Console.WriteLine("Next year your age is " + age.ToString());
 
             Console.ReadKey();
 
