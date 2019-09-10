@@ -135,7 +135,7 @@
             this.Controls.Add(this.priceInputBox);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Sequentie - opdracht 4";
             this.ResumeLayout(false);
             this.PerformLayout();
 

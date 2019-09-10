@@ -125,7 +125,7 @@
             this.Controls.Add(this.inputBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Sequentie - opdracht 5";
             this.ResumeLayout(false);
             this.PerformLayout();
 

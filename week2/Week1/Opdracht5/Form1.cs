@@ -11,8 +11,6 @@ using System.Windows.Forms;
 namespace Opdracht5 {
     public partial class Form1 : Form {
 
-        bool valuesValidated = false;
-
         public Form1() {
             InitializeComponent();
         }
