@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Opdract2 {
     class Program {
-
-        static double AskNumber(int number) {
-            Console.Write($"Geef getal {number.ToString()}: ");
-            if (double.TryParse(Console.ReadLine(), out double value)) {
-                return value;
-            } else {
-                Console.WriteLine("Dat is geen getal, probeer het opniew.");
-
-                return AskNumber(number);
-            }
-        }
-
         static void Main(string[] args) {
+
+            double AskNumber(int number) {
+                Console.Write($"Geef getal {number.ToString()}: ");
+                if (double.TryParse(Console.ReadLine(), out double value)) {
+                    return value;
+                } else {
+                    Console.WriteLine("Dat is geen getal, probeer het opniew.");
+
+                    return AskNumber(number);
+                }
+            }
+
             double[] numbers = { AskNumber(1), AskNumber(2), AskNumber(3) };
             double average = numbers.Sum() / numbers.Length;
 

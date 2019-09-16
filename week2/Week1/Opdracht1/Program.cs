@@ -9,11 +9,10 @@ namespace Opdracht1 {
             Console.Write("Geef prijs: ");
 
             if (double.TryParse(Console.ReadLine(), out double price)) {
-                string displayPrice = price.ToString("0.00");
-                string displayVat = (price * vatFactor - price).ToString("0.00");
-                string displayTotal = (price * vatFactor).ToString("0.00");
+                double priceInclVat = price * vatFactor;
+                double vat = priceInclVat - price;
 
-                Console.WriteLine($"Prijs: {displayPrice}, btw: {displayVat}, totaal: {displayTotal}");
+                Console.WriteLine("Prijs: {0}, btw: {1}, totaal: {2}", price.ToString("0.00"), vat.ToString("0.00"), priceInclVat.ToString("0.00"));
             } else {
                 Console.WriteLine("De gegeven prijs is niet een getal");
             }
