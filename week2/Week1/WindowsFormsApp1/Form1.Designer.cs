@@ -43,26 +43,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(20, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
+            this.label1.Size = new System.Drawing.Size(201, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Aantal T-shirts (30,00 euro)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 39);
+            this.label2.Location = new System.Drawing.Point(20, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 13);
+            this.label2.Size = new System.Drawing.Size(218, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Aantal Broeken (100,00 euro)";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 62);
+            this.button1.Location = new System.Drawing.Point(24, 95);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(285, 33);
+            this.button1.Size = new System.Drawing.Size(428, 51);
             this.button1.TabIndex = 2;
             this.button1.Text = "Bereken";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -71,16 +74,18 @@
             // 
             // inputTshirts
             // 
-            this.inputTshirts.Location = new System.Drawing.Point(201, 10);
+            this.inputTshirts.Location = new System.Drawing.Point(302, 15);
+            this.inputTshirts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.inputTshirts.Name = "inputTshirts";
-            this.inputTshirts.Size = new System.Drawing.Size(100, 20);
+            this.inputTshirts.Size = new System.Drawing.Size(148, 26);
             this.inputTshirts.TabIndex = 3;
             // 
             // inputPants
             // 
-            this.inputPants.Location = new System.Drawing.Point(201, 36);
+            this.inputPants.Location = new System.Drawing.Point(302, 55);
+            this.inputPants.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.inputPants.Name = "inputPants";
-            this.inputPants.Size = new System.Drawing.Size(100, 20);
+            this.inputPants.Size = new System.Drawing.Size(148, 26);
             this.inputPants.TabIndex = 4;
             // 
             // groupBox1
@@ -93,9 +98,11 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.outputDate);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(16, 101);
+            this.groupBox1.Location = new System.Drawing.Point(24, 155);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(285, 109);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(428, 168);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rekening";
@@ -103,86 +110,95 @@
             // outputTotal
             // 
             this.outputTotal.AutoSize = true;
-            this.outputTotal.Location = new System.Drawing.Point(166, 86);
+            this.outputTotal.Location = new System.Drawing.Point(249, 132);
+            this.outputTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.outputTotal.Name = "outputTotal";
-            this.outputTotal.Size = new System.Drawing.Size(49, 13);
+            this.outputTotal.Size = new System.Drawing.Size(71, 20);
             this.outputTotal.TabIndex = 7;
             this.outputTotal.Text = "10:10:10";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 86);
+            this.label10.Location = new System.Drawing.Point(10, 132);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.Size = new System.Drawing.Size(89, 20);
             this.label10.TabIndex = 6;
             this.label10.Text = "Totaal prijs:";
             // 
             // outputVat
             // 
             this.outputVat.AutoSize = true;
-            this.outputVat.Location = new System.Drawing.Point(166, 64);
+            this.outputVat.Location = new System.Drawing.Point(249, 98);
+            this.outputVat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.outputVat.Name = "outputVat";
-            this.outputVat.Size = new System.Drawing.Size(49, 13);
+            this.outputVat.Size = new System.Drawing.Size(71, 20);
             this.outputVat.TabIndex = 5;
             this.outputVat.Text = "10:10:10";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 64);
+            this.label8.Location = new System.Drawing.Point(10, 98);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 4;
             this.label8.Text = "BTW:";
             // 
             // outputPrice
             // 
             this.outputPrice.AutoSize = true;
-            this.outputPrice.Location = new System.Drawing.Point(166, 42);
+            this.outputPrice.Location = new System.Drawing.Point(249, 65);
+            this.outputPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.outputPrice.Name = "outputPrice";
-            this.outputPrice.Size = new System.Drawing.Size(49, 13);
+            this.outputPrice.Size = new System.Drawing.Size(71, 20);
             this.outputPrice.TabIndex = 3;
             this.outputPrice.Text = "10:10:10";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 42);
+            this.label6.Location = new System.Drawing.Point(10, 65);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 13);
+            this.label6.Size = new System.Drawing.Size(42, 20);
             this.label6.TabIndex = 2;
             this.label6.Text = "Prijs:";
             // 
             // outputDate
             // 
             this.outputDate.AutoSize = true;
-            this.outputDate.Location = new System.Drawing.Point(166, 20);
+            this.outputDate.Location = new System.Drawing.Point(249, 31);
+            this.outputDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.outputDate.Name = "outputDate";
-            this.outputDate.Size = new System.Drawing.Size(49, 13);
+            this.outputDate.Size = new System.Drawing.Size(71, 20);
             this.outputDate.TabIndex = 1;
             this.outputDate.Text = "10:10:10";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 20);
+            this.label3.Location = new System.Drawing.Point(10, 31);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Datum:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 224);
+            this.ClientSize = new System.Drawing.Size(477, 345);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.inputPants);
             this.Controls.Add(this.inputTshirts);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
