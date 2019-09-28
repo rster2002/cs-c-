@@ -38,18 +38,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(9, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sportsoort:";
             // 
             // radioSoccer
             // 
             this.radioSoccer.AutoSize = true;
-            this.radioSoccer.Location = new System.Drawing.Point(196, 9);
+            this.radioSoccer.Location = new System.Drawing.Point(131, 6);
+            this.radioSoccer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioSoccer.Name = "radioSoccer";
-            this.radioSoccer.Size = new System.Drawing.Size(89, 24);
+            this.radioSoccer.Size = new System.Drawing.Size(68, 20);
             this.radioSoccer.TabIndex = 1;
             this.radioSoccer.TabStop = true;
             this.radioSoccer.Text = "Voetbal";
@@ -58,9 +60,10 @@
             // radioTennis
             // 
             this.radioTennis.AutoSize = true;
-            this.radioTennis.Location = new System.Drawing.Point(196, 39);
+            this.radioTennis.Location = new System.Drawing.Point(131, 25);
+            this.radioTennis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioTennis.Name = "radioTennis";
-            this.radioTennis.Size = new System.Drawing.Size(81, 24);
+            this.radioTennis.Size = new System.Drawing.Size(64, 20);
             this.radioTennis.TabIndex = 2;
             this.radioTennis.TabStop = true;
             this.radioTennis.Text = "Tennis";
@@ -69,40 +72,45 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 74);
+            this.label2.Location = new System.Drawing.Point(9, 48);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Leeftijd:";
             // 
             // inputAge
             // 
-            this.inputAge.Location = new System.Drawing.Point(196, 71);
+            this.inputAge.Location = new System.Drawing.Point(131, 46);
+            this.inputAge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.inputAge.Name = "inputAge";
-            this.inputAge.Size = new System.Drawing.Size(133, 26);
+            this.inputAge.Size = new System.Drawing.Size(90, 20);
             this.inputAge.TabIndex = 4;
             // 
             // inputDuration
             // 
-            this.inputDuration.Location = new System.Drawing.Point(196, 103);
+            this.inputDuration.Location = new System.Drawing.Point(131, 67);
+            this.inputDuration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.inputDuration.Name = "inputDuration";
-            this.inputDuration.Size = new System.Drawing.Size(133, 26);
+            this.inputDuration.Size = new System.Drawing.Size(90, 20);
             this.inputDuration.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 106);
+            this.label3.Location = new System.Drawing.Point(9, 69);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 20);
+            this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Duur lidmaadschap";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 135);
+            this.button1.Location = new System.Drawing.Point(11, 88);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(312, 43);
+            this.button1.Size = new System.Drawing.Size(208, 28);
             this.button1.TabIndex = 7;
             this.button1.Text = "Bereken";
             this.button1.UseVisualStyleBackColor = true;
@@ -111,9 +119,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 185);
+            this.label4.Location = new System.Drawing.Point(11, 120);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Te betalen contributie";
             // 
@@ -121,17 +130,18 @@
             // 
             this.outputContribution.AutoSize = true;
             this.outputContribution.BackColor = System.Drawing.SystemColors.Control;
-            this.outputContribution.Location = new System.Drawing.Point(229, 185);
+            this.outputContribution.Location = new System.Drawing.Point(153, 120);
+            this.outputContribution.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.outputContribution.Name = "outputContribution";
-            this.outputContribution.Size = new System.Drawing.Size(14, 20);
+            this.outputContribution.Size = new System.Drawing.Size(10, 13);
             this.outputContribution.TabIndex = 9;
             this.outputContribution.Text = "-";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 230);
+            this.ClientSize = new System.Drawing.Size(227, 149);
             this.Controls.Add(this.outputContribution);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -142,6 +152,7 @@
             this.Controls.Add(this.radioTennis);
             this.Controls.Add(this.radioSoccer);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
