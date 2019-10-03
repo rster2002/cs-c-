@@ -10,7 +10,7 @@ namespace Opdracht1 {
             int numberCount = 0;
             int numberTotal = 0;
 
-            int inputNumber = 0;
+            int inputNumber;
 
             do {
                 Console.Write("Geef getal {0}: ", numberCount + 1);
