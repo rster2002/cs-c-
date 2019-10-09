@@ -17,32 +17,25 @@ namespace Opdracht6 {
             InitializeComponent();
 
             Random rnd = new Random();
-            for (int i = 3; i <= 22; i++) {
+            for (int i = 0; i < randomNumbers.Length; i++) {
                 int randomNumber = rnd.Next(1, 200 + 1);
+                randomNumbers[i] = randomNumber;
 
-                randomNumbers[i - 3] = randomNumber;
-
-                Control lbl = Controls["label" + (22 - (i - 3))];
-                lbl.Text = $"Element {(i - 3).ToString("00")}={randomNumber}";
-            }
-
-            for (int i = 23; i <= 42; i++) {
-                Control lbl = Controls["label" + i];
-                lbl.Text = "-";
+                labelList1.Text += $"Element {i.ToString("00")}={randomNumber}\n";
             }
         }
 
         private void Button1_Click(object sender, EventArgs e) {
             int comparisonNumber = int.Parse(textboxComparasonNumber.Text);
+            labelList2.Text = "";
 
             for (int i = 0; i < randomNumbers.Length; i++) {
                 int number = randomNumbers[i];
-                Control lbl = Controls["label" + (42 - i)];
 
                 if (number >= comparisonNumber) {
-                    lbl.Text = $"Element {i.ToString("00")}={number + 10}";
+                    labelList2.Text += $"Element {i.ToString("00")}={number + 10}\n";
                 } else {
-                    lbl.Text = $"Element {i.ToString("00")}={number - 5}";
+                    labelList2.Text += $"Element {i.ToString("00")}={number - 5}\n";
                 }
             }
         }
