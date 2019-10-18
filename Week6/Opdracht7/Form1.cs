@@ -7,20 +7,13 @@ namespace Opdracht7 {
             InitializeComponent();
         }
 
-        static double Celsius2Kelvin(double celsius) {
-            return celsius + 273;
-        }
-
-        static double Celsius2Fahrenheit(double celsius) {
-            return celsius * 1.8 + 32;
-        }
-        static double Fahrenheit2Celsius(double fahrenheit) {
-            return (fahrenheit - 32) / 1.8;
-        }
+        static double Celsius2Kelvin(double celsius) => celsius + 273;
+        static double Celsius2Fahrenheit(double celsius) => celsius * 1.8 + 32;
+        static double Fahrenheit2Celsius(double fahrenheit) => (fahrenheit - 32) / 1.8;
 
         private void ButtonCalculate_Click(object sender, EventArgs e) {
             double inputTemperature = double.Parse(textboxTempInput.Text);
-            double output = 0;
+            double output;
 
             if (radiobuttonCelciusToKelvin.Checked) {
                 output = Celsius2Kelvin(inputTemperature);

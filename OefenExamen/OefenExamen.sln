@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdracht1", "Opdracht1\Opdracht1.csproj", "{7BEBFD1F-E483-4D8A-AB05-23DC7090A2EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdracht2", "Opdracht2\Opdracht2.csproj", "{45094432-890D-4282-85D9-82E38B4C4BDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdracht3", "Opdracht3\Opdracht3.csproj", "{AA325502-EA75-4773-9298-28273CD3ACD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BEBFD1F-E483-4D8A-AB05-23DC7090A2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEBFD1F-E483-4D8A-AB05-23DC7090A2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEBFD1F-E483-4D8A-AB05-23DC7090A2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEBFD1F-E483-4D8A-AB05-23DC7090A2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45094432-890D-4282-85D9-82E38B4C4BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45094432-890D-4282-85D9-82E38B4C4BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45094432-890D-4282-85D9-82E38B4C4BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45094432-890D-4282-85D9-82E38B4C4BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA325502-EA75-4773-9298-28273CD3ACD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA325502-EA75-4773-9298-28273CD3ACD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA325502-EA75-4773-9298-28273CD3ACD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA325502-EA75-4773-9298-28273CD3ACD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFDE2F45-C133-43FB-A3EC-A9301E2A521D}
+	EndGlobalSection
+EndGlobal

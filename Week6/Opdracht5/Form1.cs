@@ -7,32 +7,37 @@ namespace Opdracht5 {
             InitializeComponent();
         }
 
-        private void ButtonAdd_Click(object sender, EventArgs e) {
-            double number1 = double.Parse(textboxNumber1.Text);
-            double number2 = double.Parse(textboxNumber2.Text);
+        static int addNumbers(int number1, int number2) => number1 + number2;
+        static int subtrackNumbers(int number1, int number2) => number1 - number2;
+        static int multiplyNumbers(int number1, int number2) => number1 * number2;
+        static double divideNumbers(int number1, int number2) => (double) number1 / number2;
 
-            labelOutput.Text = (number1 + number2).ToString();
+        private void ButtonAdd_Click(object sender, EventArgs e) {
+            int number1 = int.Parse(textboxNumber1.Text);
+            int number2 = int.Parse(textboxNumber2.Text);
+
+            labelOutput.Text = addNumbers(number1, number2).ToString();
         }
 
         private void ButtonSubtract_Click(object sender, EventArgs e) {
-            double number1 = double.Parse(textboxNumber1.Text);
-            double number2 = double.Parse(textboxNumber2.Text);
+            int number1 = int.Parse(textboxNumber1.Text);
+            int number2 = int.Parse(textboxNumber2.Text);
 
-            labelOutput.Text = (number1 - number2).ToString();
+            labelOutput.Text = subtrackNumbers(number1, number2).ToString();
         }
 
         private void ButtonMultiply_Click(object sender, EventArgs e) {
-            double number1 = double.Parse(textboxNumber1.Text);
-            double number2 = double.Parse(textboxNumber2.Text);
+            int number1 = int.Parse(textboxNumber1.Text);
+            int number2 = int.Parse(textboxNumber2.Text);
 
-            labelOutput.Text = (number1 * number2).ToString();
+            labelOutput.Text = multiplyNumbers(number1, number2).ToString();
         }
 
         private void ButtonDevide_Click(object sender, EventArgs e) {
-            double number1 = double.Parse(textboxNumber1.Text);
-            double number2 = double.Parse(textboxNumber2.Text);
+            int number1 = int.Parse(textboxNumber1.Text);
+            int number2 = int.Parse(textboxNumber2.Text);
 
-            labelOutput.Text = (number1 / number2).ToString();
+            labelOutput.Text = divideNumbers(number1, number2).ToString();
         }
     }
 }

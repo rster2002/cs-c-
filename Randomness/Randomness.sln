@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primes", "Primes\Primes.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUT-NS", "AUT-NS\AUT-NS.csproj", "{3A18CCF8-976B-4F90-B522-8E344306D1D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecToBin", "DecToBin\DecToBin.csproj", "{F68DBFB7-8F40-474F-878F-ECDF8B9BCE69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "Lists\Lists.csproj", "{0B83F76F-9E6B-445F-8594-6AD52FB12656}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3A18CCF8-976B-4F90-B522-8E344306D1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A18CCF8-976B-4F90-B522-8E344306D1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A18CCF8-976B-4F90-B522-8E344306D1D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68DBFB7-8F40-474F-878F-ECDF8B9BCE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68DBFB7-8F40-474F-878F-ECDF8B9BCE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68DBFB7-8F40-474F-878F-ECDF8B9BCE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68DBFB7-8F40-474F-878F-ECDF8B9BCE69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B83F76F-9E6B-445F-8594-6AD52FB12656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B83F76F-9E6B-445F-8594-6AD52FB12656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B83F76F-9E6B-445F-8594-6AD52FB12656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B83F76F-9E6B-445F-8594-6AD52FB12656}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

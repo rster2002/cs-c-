@@ -19,17 +19,7 @@ namespace Opdracht3 {
             return 0;
         }
 
-        static bool isLeapYear(int year) {
-            bool isLeapYear = false;
-
-            if (year % 100 != 0) {
-                if (year % 400 == 0 || year % 4 == 0) {
-                    isLeapYear = true;
-                }
-            }
-
-            return isLeapYear;
-        }
+        static bool isLeapYear(int year) => DateTime.IsLeapYear(year);
 
         static void Main(string[] args) {
             int input;

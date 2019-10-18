@@ -38,6 +38,8 @@ namespace Opdracht6 {
                     labelList2.Text += $"Element {i.ToString("00")}={number - 5}\n";
                 }
             }
+
+            button1.Enabled = false;
         }
     }
 }
