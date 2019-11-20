@@ -21,7 +21,7 @@ namespace Opdracht1 {
             Console.ReadKey();
         }
 
-        void printMonth(Month month) => Console.WriteLine("{0}. {1}", (int) month, month);
+        void printMonth(Month month) => Console.WriteLine("{0, 3}. {1}", (int) month, month);
 
         void printMonths() {
             for (int i = 1; i <= 12; i++) {

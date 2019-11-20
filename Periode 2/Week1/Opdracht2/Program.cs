@@ -24,7 +24,7 @@ namespace Opdracht2 {
                 Console.WriteLine();
             }
 
-            persons[0] = celebrateBirthday(persons[0]);
+            celebrateBirthday(ref persons[0]);
 
             printPerson(persons[0]);
 
@@ -59,10 +59,9 @@ namespace Opdracht2 {
             }
         }
 
-        Person celebrateBirthday(Person person) {
+        void celebrateBirthday(ref Person person) {
             Console.WriteLine("Verjaardag vieren van {0} {1}...", person.firstName, person.lastName);
-            person.age = person.age + 1;
-            return person;
+            person.age++;
         }
 
         Sex readSex() {

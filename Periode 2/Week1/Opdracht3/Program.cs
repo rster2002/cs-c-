@@ -91,26 +91,42 @@ namespace Opdracht3 {
                 iterations++;
             } while (!game.yahtzee());
 
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine($"Three of a kind: {threeOfAKindCount} ({pointsScoredByThreeOfAKind} punten)");
+            writeLineInColor(
+                ConsoleColor.DarkGreen,
+                $"Three of a kind: {threeOfAKindCount} ({pointsScoredByThreeOfAKind} punten)"
+            );
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Four of a kind: {fourOfAKindCount} ({pointsScoredByFourOfAKind} punten)");
+            writeLineInColor(
+                ConsoleColor.Green,
+                $"Four of a kind: {fourOfAKindCount} ({pointsScoredByFourOfAKind} punten)"
+            );
 
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"Full houses: {fullHousesCount} ({pointsScoredByFullHouses} punten)");
+            writeLineInColor(
+                ConsoleColor.Blue,
+                $"Full houses: {fullHousesCount} ({pointsScoredByFullHouses} punten)"
+            );
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Small Straights: {smallStraightCount} ({pointsScoredBySmallStraights} punten)");
+            writeLineInColor(
+                ConsoleColor.Red,
+                $"Small Straights: {smallStraightCount} ({pointsScoredBySmallStraights} punten)"
+            );
 
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"Full Straights: {fullStraightCount} ({pointsScoredByFullStraights} punten)");
+            writeLineInColor(
+                ConsoleColor.Magenta,
+                $"Full Straights: {fullStraightCount} ({pointsScoredByFullStraights} punten)"
+            );
 
             int totalPoints = pointsScoredByThreeOfAKind + pointsScoredByFourOfAKind + pointsScoredByFullHouses + pointsScoredBySmallStraights + pointsScoredByFullStraights + 50;
 
-            Console.ResetColor();
+            
             Console.WriteLine($"Je heb in totaal {totalPoints} punten gescoord.");
             Console.WriteLine($"Er waren {iterations} pogingen nodig voor yahtzee");
+        }
+
+        void writeLineInColor(ConsoleColor color, string message) {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }

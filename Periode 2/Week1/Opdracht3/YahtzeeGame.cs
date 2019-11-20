@@ -41,21 +41,22 @@ namespace Opdracht3 {
             return accurences > 0;
         }
 
-        private bool allDiceHaveValue(int valueToCheck, int amountToCheck) {
-            int countOfNumber = countAccurences(valueToCheck);
+        private bool hasNOfSpecificNumber(int number, int amountToCheck) {
+            int countOfNumber = countAccurences(number);
 
             return countOfNumber == amountToCheck;
         }
 
         private bool hasNofNumber(int amountRequired) {
-            bool fullOnes = allDiceHaveValue(1, amountRequired);
-            bool fullTwos = allDiceHaveValue(2, amountRequired);
-            bool fullThrees = allDiceHaveValue(3, amountRequired);
-            bool fullFours = allDiceHaveValue(4, amountRequired);
-            bool fullFives = allDiceHaveValue(5, amountRequired);
-            bool fullSixes = allDiceHaveValue(6, amountRequired);
+            for (int i = 1; i <= 6; i++) {
+                bool hasRequiredNumber = hasNOfSpecificNumber(i, amountRequired);
 
-            return fullOnes || fullTwos || fullThrees || fullFours || fullFives || fullFives || fullSixes;
+                if (hasRequiredNumber) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public bool threeOfAKind() {
@@ -67,7 +68,15 @@ namespace Opdracht3 {
         }
 
         public bool yahtzee() {
-            return hasNofNumber(5);
+            for (int i = 1; i <= dice.Length - 1; i++) {
+                bool isStillValid = dice[0].value == dice[i].value;
+
+                if (!isStillValid) {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public bool fullHouse() {

@@ -65,10 +65,6 @@ namespace Opdracht1 {
             return internalReadString(message, defaultInvalidInputMessage, i => true);
         }
 
-        public string readString(string message, string invalidInputMessage) {
-            return internalReadString(message, invalidInputMessage, i => true);
-        }
-
         public string readString(string message, Func<string, bool> validationMethod) {
             return internalReadString(message, defaultInvalidInputMessage, validationMethod);
         }
