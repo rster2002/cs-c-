@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecToBin", "DecToBin\DecToB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "Lists\Lists.csproj", "{0B83F76F-9E6B-445F-8594-6AD52FB12656}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGame", "ConwaysGame\ConwaysGame.csproj", "{7B10B478-3C56-480B-A4CD-0954E75123DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0B83F76F-9E6B-445F-8594-6AD52FB12656}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B83F76F-9E6B-445F-8594-6AD52FB12656}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B83F76F-9E6B-445F-8594-6AD52FB12656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B10B478-3C56-480B-A4CD-0954E75123DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B10B478-3C56-480B-A4CD-0954E75123DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B10B478-3C56-480B-A4CD-0954E75123DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B10B478-3C56-480B-A4CD-0954E75123DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
