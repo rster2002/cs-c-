@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Opdracht2 {
     class Program {
@@ -55,12 +51,10 @@ namespace Opdracht2 {
                     int value = matrix[r, c];
 
                     if (value == query) {
-                        Position firstPosition = new Position();
-
-                        firstPosition.column = c;
-                        firstPosition.row = r;
-
-                        return firstPosition;
+                        return new Position {
+                            row = r,
+                            column = c
+                        };
                     }
                 }
             }
