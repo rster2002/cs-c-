@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7B10B478-3C56-480B-A4CD-0954E75123DF}</ProjectGuid>
+    <ProjectGuid>{1F43D91A-5CA6-4DC3-B32B-9ECFF324BCD2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConwaysGame</RootNamespace>
-    <AssemblyName>ConwaysGame</AssemblyName>
+    <RootNamespace>Opdracht1</RootNamespace>
+    <AssemblyName>Opdracht1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConwaysGame.cs" />
+    <Compile Include="Quick.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
