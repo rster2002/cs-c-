@@ -1,19 +1,11 @@
 ﻿using System;
 using System.IO;
+using CandyCrushLogic;
 
 namespace Opdracht4 {
     class Program {
         Random random = new Random();
         const string saveFilePath = "./gameSave.txt";
-
-        enum RegularCandy {
-            JellyBean = 1,
-            Lozenge,
-            LemonDrop,
-            GumSquare,
-            LollipopHead,
-            JujubeCluster
-        }
 
         static void Main(string[] args) {
             Program program = new Program();
@@ -39,8 +31,8 @@ namespace Opdracht4 {
 
             printCandies(candyGrid);
 
-            bool scoreRowPresent = checkScoreRowPresent(candyGrid);
-            bool scoreColumnPresent = checkScoreColumnPresent(candyGrid);
+            bool scoreRowPresent = CandyCrusher.checkScoreRowPresent(candyGrid);
+            bool scoreColumnPresent = CandyCrusher.checkScoreColumnPresent(candyGrid);
 
             Console.WriteLine("{0}, er is {1}een score rij aanwezig", scoreRowPresent ? "Ja" : "Nee", scoreRowPresent ? "" : "GEEN ");
             Console.WriteLine("{0}, er is {1}een score kolom aanwezig", scoreColumnPresent ? "Ja" : "Nee", scoreColumnPresent ? "" : "GEEN ");
@@ -107,94 +99,62 @@ namespace Opdracht4 {
             }
         }
 
-        bool checkScoreRowPresent(RegularCandy[,] grid) {
-            for (int r = 0; r < grid.GetLength(0); r++) {
-                for (int c = 0; c < grid.GetLength(1) - 2; c++) {
-                    RegularCandy comparisonCandy = grid[r, c];
-
-                    if (grid[r, c + 1] == comparisonCandy && grid[r, c + 2] == comparisonCandy) {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        bool checkScoreColumnPresent(RegularCandy[,] grid) {
-            for (int c = 0; c < grid.GetLength(0); c++) {
-                for (int r = 0; r < grid.GetLength(1) - 2; r++) {
-                    RegularCandy comparisonCandy = grid[r, c];
-
-                    if (grid[r + 1, c] == comparisonCandy && grid[r + 1, c] == comparisonCandy) {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
         void writePlayingField(RegularCandy[,] grid, string fileName) {
-            StreamWriter streamWriter = new StreamWriter(fileName);
+            try {
+                using (StreamWriter streamWriter = new StreamWriter(fileName)) {
+                    streamWriter.WriteLine(grid.GetLength(0));
+                    streamWriter.WriteLine(grid.GetLength(1));
 
-            streamWriter.WriteLine(grid.GetLength(0));
-            streamWriter.WriteLine(grid.GetLength(1));
+                    for (int r = 0; r < grid.GetLength(0); r++) {
+                        string row = "";
 
-            for (int r = 0; r < grid.GetLength(0); r++) {
-                string row = "";
+                        for (int c = 0; c < grid.GetLength(1); c++) {
+                            row += (int) grid[r, c];
 
-                for (int c = 0; c < grid.GetLength(1); c++) {
-                    row += (int) grid[r, c];
+                            if (c < grid.GetLength(1) - 1) {
+                                row += " ";
+                            }
+                        }
 
-                    if (c < grid.GetLength(1) - 1) {
-                        row += " ";
+                        streamWriter.WriteLine(row);
                     }
                 }
-
-                streamWriter.WriteLine(row);
+            } catch {
+                Console.WriteLine("Het speelveld kon niet worden opgeslagen.");
             }
-
-            streamWriter.Close();
         }
          
         RegularCandy[,] readPlayingField(string fileName) {
-            StreamReader streamReader = null;
-
             try {
-                streamReader = new StreamReader(fileName);
+                using (StreamReader streamReader = new StreamReader(fileName)) {
+                    int rows = int.Parse(streamReader.ReadLine());
+                    int columns = int.Parse(streamReader.ReadLine());
 
-                int rows = int.Parse(streamReader.ReadLine());
-                int columns = int.Parse(streamReader.ReadLine());
+                    RegularCandy[,] grid = new RegularCandy[rows, columns];
 
-                RegularCandy[,] grid = new RegularCandy[rows, columns];
+                    int row = 0;
+                    while (!streamReader.EndOfStream) {
+                        string line = streamReader.ReadLine();
+                        string[] candies = line.Split(' ');
 
-                int row = 0;
-                while (!streamReader.EndOfStream) {
-                    string line = streamReader.ReadLine();
-                    string[] candies = line.Split(' ');
+                        for (int i = 0; i < candies.Length; i++) {
+                            int candyId = int.Parse(candies[i]);
 
-                    for (int i = 0; i < candies.Length; i++) {
-                        int candyId = int.Parse(candies[i]);
-
-                        if (Enum.IsDefined(typeof(RegularCandy), candyId)) {
-                            RegularCandy candy = (RegularCandy) candyId;
-                            grid[row, i] = candy;
-                        } else {
-                            throw new Exception("Candy id was not present in Enum");
+                            if (Enum.IsDefined(typeof(RegularCandy), candyId)) {
+                                RegularCandy candy = (RegularCandy) candyId;
+                                grid[row, i] = candy;
+                            } else {
+                                throw new Exception("Candy id was not present in Enum");
+                            }
                         }
+
+                        row++;
                     }
 
-                    row++;
+                    return grid;
                 }
-
-                return grid;
-            } catch (IOException exception) {
-                Console.WriteLine(exception.Message);
             } catch (Exception exception) {
                 throw exception;
-            } finally {
-                streamReader.Close();
             }
         }
     }
