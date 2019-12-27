@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Web;
-using System.Web.Script.Serialization;
 
 namespace AUT_NS {
     public partial class Form1:Form {

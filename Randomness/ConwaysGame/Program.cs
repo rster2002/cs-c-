@@ -13,9 +13,8 @@ namespace ConwaysGame {
     }
 
     class Program {
-        bool[,] grid = new bool[30, 50];
-        Position cursor = new Position(0, 0);
-        bool showNaborDebug = false;
+        ConwaysGame game;
+        int generationsPerTick;
 
         static void Main(string[] args) {
             Program program = new Program();
@@ -23,7 +22,8 @@ namespace ConwaysGame {
         }
 
         void start() {
-            initGridSelect();
+            game = new ConwaysGame(rows: 30, columns: 50);
+            game.getInput();
 
             startGame();
 
@@ -32,15 +32,17 @@ namespace ConwaysGame {
 
         void startGame() {
             Console.Clear();
-            printGrid();
+            game.initialDraw();
 
             Console.WriteLine();
             Console.Write("Game tick speed (in TPS): ");
             int tickSpeed = int.Parse(Console.ReadLine());
+            Console.Write("Game generations per tick (in generations): ");
+            generationsPerTick = int.Parse(Console.ReadLine());
 
             Timer timer = new System.Timers.Timer();
             timer.Interval = 1000 / tickSpeed;
-            timer.Elapsed += gameTick;
+            timer.Elapsed += doGameTick;
             timer.AutoReset = true;
             timer.Enabled = true;
 
@@ -51,147 +53,12 @@ namespace ConwaysGame {
             return;
         }
 
-        void gameTick(Object source, System.Timers.ElapsedEventArgs e) {
-            bool[,] nextGeneration = new bool[grid.GetLength(0), grid.GetLength(1)];
-
-            for (int r = 0; r < grid.GetLength(0); r++) {
-                for (int c = 0; c < grid.GetLength(1); c++) {
-                    int nabors = 0;
-                    bool alive = grid[r, c];
-                    bool nextGenerationValue;
-
-                    if (c > 0 && grid[r, c - 1]) {
-                        nabors++;
-                    }
-
-                    if (c < grid.GetLength(1) - 1 && grid[r, c + 1]) {
-                        nabors++;
-                    }
-
-                    if (r > 0 && grid[r - 1, c]) {
-                        nabors++;
-                    }
-
-                    if (r < grid.GetLength(0) - 1 && grid[r + 1, c]) {
-                        nabors++;
-                    }
-
-                    if (r > 0 && c > 0 && grid[r - 1, c - 1]) {
-                        nabors++;
-                    }
-
-                    if (r > 0 && c < grid.GetLength(1) - 1 && grid[r - 1, c + 1]) {
-                        nabors++;
-                    }
-
-                    if (r < grid.GetLength(0) - 1 && c > 0 && grid[r + 1, c - 1]) {
-                        nabors++;
-                    }
-
-                    if (r < grid.GetLength(0) - 1 && c < grid.GetLength(1) - 1 && grid[r + 1, c + 1]) {
-                        nabors++;
-                    }
-
-                    if (alive) {
-                        if (nabors == 2 || nabors == 3) {
-                            nextGenerationValue = true;
-                        } else {
-                            nextGenerationValue = false;
-                        }
-                    } else {
-                        if (nabors == 3) {
-                            nextGenerationValue = true;
-                        } else {
-                            nextGenerationValue = false;
-                        }
-                    }
-
-                    nextGeneration[r, c] = nextGenerationValue;
-
-                    if (!showNaborDebug) {
-                        if (alive != nextGenerationValue) {
-                            Console.SetCursorPosition(c * 3 + 1, r);
-
-                            if (nextGenerationValue) {
-                                Console.Write("#");
-                            } else {
-                                Console.Write(" ");
-                            }
-
-                            Console.SetCursorPosition(0, grid.GetLength(0));
-                        }
-                    } else {
-                        Console.SetCursorPosition(c * 3 + 1, r);
-
-                        if (nabors > 0) {
-                            Console.Write(nabors);
-                        } else {
-                            Console.Write(" ");
-                        }
-
-                        Console.SetCursorPosition(0, grid.GetLength(0));
-                    }
-                }
-
-                if (showNaborDebug) {
-                    Console.WriteLine();
-                }
+        void doGameTick(Object source, System.Timers.ElapsedEventArgs e) {
+            for (int i = 0; i <= generationsPerTick; i++) {
+                game.gameTick();
             }
-
-            grid = nextGeneration;
-
-            //printGrid();
-            Console.WriteLine("Press any key at any time to stop");
-        }
-        
-
-        void printCursor() {
-            int leftPosition = cursor.column * 3;
-            int topPosition = cursor.row;
-
-            Console.SetCursorPosition(leftPosition, topPosition);
-            Console.Write("[");
-            Console.SetCursorPosition(leftPosition + 2, topPosition);
-            Console.Write("]");
-            Console.SetCursorPosition(0, grid.GetLength(0));
-        }
-
-        void removeOldCursorPosition() {
-            int leftPosition = cursor.column * 3;
-            int topPosition = cursor.row;
-
-            Console.SetCursorPosition(leftPosition, topPosition);
-            Console.Write(" ");
-            Console.SetCursorPosition(leftPosition + 2, topPosition);
-            Console.Write(" ");
-            Console.SetCursorPosition(0, grid.GetLength(0));
-        }
-
-        void printWithCursor() {
-            for (int r = 0; r < grid.GetLength(0); r++) {
-                for (int c = 0; c < grid.GetLength(1); c++) {
-                    Console.Write(" ");
-                    Console.Write(grid[r, c] ? "#" : "-");
-                    Console.Write(" ");
-                }
-
-                Console.WriteLine();
-            }
-
-            //Console.SetCursorPosition(0, 0);
-            //Console.Write("T");
-        }
-
-        void printGrid() {
-            for (int r = 0; r < grid.GetLength(0); r++) {
-                for (int c = 0; c < grid.GetLength(1); c++) {
-                    Console.Write(" ");
-                    Console.Write(grid[r, c] ? "#" : " ");
-                    Console.Write(" ");
-                }
-
-                Console.WriteLine();
-            }
+            
+            game.reDraw();
         }
     }
 }
