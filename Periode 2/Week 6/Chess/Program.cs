@@ -47,6 +47,26 @@ namespace Chess {
             }
         }
 
+        Position readPosition() {
+            string positionInput = input.readString(
+                "Type a board position: ",
+                "This is not a valid board position",
+                input => validPositionString(input)
+            );
+
+            return positionStringToPosition(positionInput);
+        }
+
+        bool validPositionString(string positionString) {
+            try {
+                positionStringToPosition(positionString);
+            } catch {
+                return false;
+            }
+
+            return true;
+        }
+
         Position positionStringToPosition(string positionString) {
             try {
                 int column = positionString[0] - 'A';
@@ -60,29 +80,9 @@ namespace Chess {
                 } else {
                     throw new Exception();
                 }
-            } catch(Exception exception) {
+            } catch (Exception exception) {
                 throw exception;
             }
-        }
-
-        bool validPositionString(string positionString) {
-            try {
-                positionStringToPosition(positionString);
-            } catch {
-                return false;
-            }
-
-            return true;
-        }
-
-        Position readPosition() {
-            string positionInput = input.readString(
-                "Type a board position: ",
-                "This is not a valid board position",
-                input => validPositionString(input)
-            );
-
-            return positionStringToPosition(positionInput);
         }
     }
 }

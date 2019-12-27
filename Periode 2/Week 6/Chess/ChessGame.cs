@@ -110,11 +110,6 @@ namespace Chess {
             }
         }
 
-        private bool positionValid(Position position) {
-            return position.row >= 0 && position.row <= 7 &&
-                position.column >= 0 && position.column <= 7;
-        }
-
         public void doMove(Position fromPosition, Position toPosition) {
             if (checkMove(fromPosition, toPosition)) {
                 ChessPiece fromChessPiece = chessBoard[fromPosition.row, fromPosition.column];
@@ -137,6 +132,11 @@ namespace Chess {
             if (toChessPiece != null) throw new Exception("There is a chess piece at the end position.");
 
             return validMove(fromPosition, toPosition);
+        }
+
+        private bool positionValid(Position position) {
+            return position.row >= 0 && position.row <= 7 &&
+                position.column >= 0 && position.column <= 7;
         }
 
         private bool validMove(Position fromPosition, Position toPosition) {
