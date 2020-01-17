@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "Lists\Lists.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGame", "ConwaysGame\ConwaysGame.csproj", "{7B10B478-3C56-480B-A4CD-0954E75123DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oefententamen Periode 2", "Oefententamen Periode 2\Oefententamen Periode 2.csproj", "{67E0A513-6BBA-4D4B-92A0-5C0425EF8AE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7B10B478-3C56-480B-A4CD-0954E75123DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B10B478-3C56-480B-A4CD-0954E75123DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B10B478-3C56-480B-A4CD-0954E75123DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E0A513-6BBA-4D4B-92A0-5C0425EF8AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E0A513-6BBA-4D4B-92A0-5C0425EF8AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E0A513-6BBA-4D4B-92A0-5C0425EF8AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E0A513-6BBA-4D4B-92A0-5C0425EF8AE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
