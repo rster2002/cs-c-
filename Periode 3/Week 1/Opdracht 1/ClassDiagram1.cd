@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Opdracht_1.Programmer">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Programmer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="speciality" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Opdracht_1.Team">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAE=</HashCode>
+      <FileName>Team.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="members" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="Opdracht_1.Speciality" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAABAAAAAAAAAAAAIBAAAAAAAABA=</HashCode>
+      <FileName>Speciality.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
