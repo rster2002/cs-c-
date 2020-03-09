@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Opdracht_3 {
     class WarCardGame:CardGame {
@@ -39,19 +35,27 @@ namespace Opdracht_3 {
             Console.WriteLine($"[{player1.name}] {player1card.ToString()} - [{player2.name}] {player2card.ToString()}");
 
             if (player1cardScore > player2cardScore) {
+                Console.ForegroundColor = player1.playerColor;
+
                 player1.hand.add(player1card);
                 player1.hand.add(player2card);
 
                 Console.WriteLine($"{player1.name} got the cards");
             } else if (player2cardScore > player1cardScore) {
+                Console.ForegroundColor = player2.playerColor;
+
                 player2.hand.add(player1card);
                 player2.hand.add(player2card);
 
                 Console.WriteLine($"{player2.name} got the cards");
             } else {
+                Console.ForegroundColor = ConsoleColor.Red;
+
                 Console.WriteLine("Cards were lost");
                 Console.WriteLine($"Current standings: {player1.name} {player1.hand.cards.Count}x, {player2.name} {player2.hand.cards.Count}x");
             }
+
+            Console.ResetColor();
         }
     }
 }

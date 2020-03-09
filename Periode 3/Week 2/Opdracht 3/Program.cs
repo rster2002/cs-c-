@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Opdracht_3 {
     class Program {
@@ -12,8 +9,8 @@ namespace Opdracht_3 {
         }
 
         void start() {
-            Player player1 = new Player("Player 1");
-            Player player2 = new Player("Player 2");
+            Player player1 = new Player("Player 1", ConsoleColor.Green);
+            Player player2 = new Player("Player 2", ConsoleColor.Yellow);
 
             WarCardGame game = new WarCardGame(player1, player2);
 

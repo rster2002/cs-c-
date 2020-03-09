@@ -5,7 +5,7 @@ namespace Opdracht_2 {
     class Deck {
         public List<Card> cards = new List<Card>();
 
-        public Deck() { };
+        public Deck() { }
         
         public Deck(List<Card> cards) {
             this.cards = cards;

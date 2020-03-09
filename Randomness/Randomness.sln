@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oefententamen Periode 2", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perlin Noise", "Perlin Noise\Perlin Noise.csproj", "{FBEA29F1-6898-4370-80A3-AEADCA279D12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quick", "..\Quick\Quick\Quick.csproj", "{34E8D678-FEA7-4E47-B2CC-4A494EA60EE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quick Testing", "Quick Testing\Quick Testing.csproj", "{4785ECA4-4A81-46AB-9BD6-65F1762F8597}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{FBEA29F1-6898-4370-80A3-AEADCA279D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBEA29F1-6898-4370-80A3-AEADCA279D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBEA29F1-6898-4370-80A3-AEADCA279D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34E8D678-FEA7-4E47-B2CC-4A494EA60EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E8D678-FEA7-4E47-B2CC-4A494EA60EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E8D678-FEA7-4E47-B2CC-4A494EA60EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E8D678-FEA7-4E47-B2CC-4A494EA60EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4785ECA4-4A81-46AB-9BD6-65F1762F8597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4785ECA4-4A81-46AB-9BD6-65F1762F8597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4785ECA4-4A81-46AB-9BD6-65F1762F8597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4785ECA4-4A81-46AB-9BD6-65F1762F8597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

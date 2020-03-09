@@ -10,13 +10,15 @@ namespace Perlin_Noise {
             Random random = new Random(32);
             double[,] grid = new double[10, 10];
 
-            for (int r = 0; r < grid.GetLength(0); r++) {
-                for (int c = 0; c < grid.GetLength(1); c++) {
-                    grid[r, c] = perlinNoise(r, c, random);
-                }
-            }
+            Vector vector = new Vector(1, 2);
 
-            printGrid(grid);
+            //for (int r = 0; r < grid.GetLength(0); r++) {
+            //    for (int c = 0; c < grid.GetLength(1); c++) {
+            //        grid[r, c] = perlinNoise(r, c, random);
+            //    }
+            //}
+
+            //printGrid(grid);
 
             Console.ReadKey();
         }

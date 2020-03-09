@@ -63,11 +63,21 @@ namespace Opdracht_3 {
             return pickedCard;
         }
 
-        public Card draw(int count = 1) {
+        public Card draw() {
             Card pickedCard = cards[0];
             cards.Remove(pickedCard);
 
             return pickedCard;
+        }
+
+        public List<Card> drawMultiple(int count = 1) {
+            List<Card> drawnCards = new List<Card>();
+
+            for (int i = 1; i <= count; i++) {
+                drawnCards.Add(draw());
+            }
+
+            return drawnCards;
         }
 
         public void add(Card card) {
@@ -82,16 +92,6 @@ namespace Opdracht_3 {
 
         public void remove(Card card) {
             cards.Remove(card);
-        }
-
-        public List<Card> drawMultiple(int count = 1) {
-            List<Card> drawnCards = new List<Card>();
-
-            for (int i = 1; i <= count; i++) {
-                drawnCards.Add(draw());
-            }
-
-            return drawnCards;
         }
 
         public void print() {
