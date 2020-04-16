@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseSandbox", "DatabaseSandbox\DatabaseSandbox.csproj", "{703D86FB-9F8C-4A26-B7DA-3DE12AD2DDFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{703D86FB-9F8C-4A26-B7DA-3DE12AD2DDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{703D86FB-9F8C-4A26-B7DA-3DE12AD2DDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{703D86FB-9F8C-4A26-B7DA-3DE12AD2DDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{703D86FB-9F8C-4A26-B7DA-3DE12AD2DDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC1EAD9F-895F-4CE1-A117-51D6D19E1AEC}
+	EndGlobalSection
+EndGlobal

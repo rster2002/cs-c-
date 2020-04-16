@@ -7,7 +7,7 @@ namespace DAL {
     public class CustomerDAO {
         private SQLInterface sqlInterface = new SQLInterface();
 
-        public List<Customer> GetAll() {
+        public List<Customer> getAll() {
             List<Dictionary<string, object>> records = sqlInterface
                 .execute(
                     "SELECT * " +
@@ -19,7 +19,7 @@ namespace DAL {
                 .ToList();
         }
 
-        public Customer GetById(int id) {
+        public Customer getById(int id) {
             List<Dictionary<string, object>> records = sqlInterface
                 .param("id", id)
                 .execute(

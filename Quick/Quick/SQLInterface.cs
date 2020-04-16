@@ -36,6 +36,14 @@ namespace Quick {
                 return this;
             }
 
+            public SQLInterface line(string queryLine) {
+                this.queryString += " " + queryLine;
+                return this;
+            }
+
+            public SQLInterface l(string queryLine) => line(queryLine);
+            public SQLInterface q(string queryString) => query(queryString);
+
             private void evaluateParameters(SqlCommand command) {
                 foreach (KeyValuePair<string, string> parameter in sqlParams) {
                     command.Parameters.AddWithValue("@" + parameter.Key, parameter.Value);
