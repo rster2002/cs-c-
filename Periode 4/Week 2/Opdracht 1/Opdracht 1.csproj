@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{703D86FB-9F8C-4A26-B7DA-3DE12AD2DDFC}</ProjectGuid>
+    <ProjectGuid>{70902CF0-2907-4DDD-8DEF-B61DD279EE9C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DatabaseSandbox</RootNamespace>
-    <AssemblyName>DatabaseSandbox</AssemblyName>
+    <RootNamespace>Opdracht_1</RootNamespace>
+    <AssemblyName>Opdracht 1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,11 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Quick">
-      <HintPath>..\..\Quick\Quick\bin\Debug\Quick.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,13 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base.cs" />
+    <Compile Include="BatchProcessor.cs" />
+    <Compile Include="CallDataLoader.cs" />
+    <Compile Include="BigDataLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorDataLoader.cs" />
+    <Compile Include="TwitterDataLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Credentials.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

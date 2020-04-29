@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Quick.SQLInterface;
 
-namespace DatabaseSandbox {
+namespace Opdracht_1 {
     class Program {
         static void Main(string[] args) {
             Program program = new Program();
@@ -14,9 +12,15 @@ namespace DatabaseSandbox {
         }
 
         void start() {
-            SQLInterface sqlInterface = new SQLInterface(ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString);
+            BatchProcessor batch = new BatchProcessor();
 
+            batch.add(new CallDataLoader());
+            batch.add(new TwitterDataLoader());
+            batch.add(new SensorDataLoader());
 
+            batch.execute();
+
+            Console.ReadKey();
         }
     }
 }
