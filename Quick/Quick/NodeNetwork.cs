@@ -14,8 +14,6 @@ namespace Quick {
 
             public List<NodeConnection> Connections { get { return connections; } }
 
-            public Node() { }
-
             public Node(string name) {
                 this.name = name;
             }
@@ -25,14 +23,24 @@ namespace Quick {
                 this.data = data;
             }
 
-            public void connectTo(Node node) {
+            public void createDirectedConnection(Node node) {
                 addConnection(new NodeConnection(node));
                 node.addConnection(new NodeConnection(this));
             }
 
-            public void connectTo(Node node, object data) {
+            public void createDirectedConnection(Node node, object data) {
+                NodeConnectionData connectionData = new NodeConnectionData(data);
+
+                addConnection(new NodeConnection(node, connectionData));
+                node.addConnection(new NodeConnection(this, connectionData));
+            }
+
+            public void createUndirectedConnection(Node node) {
+                addConnection(new NodeConnection(node));
+            }
+
+            public void createUndirectedConnection(Node node, object data) {
                 addConnection(new NodeConnection(node, data));
-                node.addConnection(new NodeConnection(this, data));
             }
 
             public void addConnection(NodeConnection connection) {
@@ -42,14 +50,39 @@ namespace Quick {
 
         public class NodeConnection {
             public Node node;
-            public object data;
+            public NodeConnectionData data;
 
             public NodeConnection(Node toNode) {
                 node = toNode;
             }
 
+            public NodeConnection(Node toNode, NodeConnectionData data) {
+                node = toNode;
+                this.data = data;
+            }
+
             public NodeConnection(Node toNode, object data) {
                 node = toNode;
+                this.data = new NodeConnectionData(data);
+            }
+
+            public void setData(object data) {
+                if (data == null) {
+                    this.data = new NodeConnectionData(data);
+                } else {
+                    this.data.setData(data);
+                }
+            }
+        }
+
+        public class NodeConnectionData {
+            public object data;
+
+            public NodeConnectionData(object data) {
+                setData(data);
+            }
+
+            public void setData(object data) {
                 this.data = data;
             }
         }

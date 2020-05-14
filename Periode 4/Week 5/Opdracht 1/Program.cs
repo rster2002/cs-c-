@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Quick.Input;
 
-namespace DatabaseSandbox {
+namespace Opdracht_1 {
     class Program {
         static void Main(string[] args) {
             Program program = new Program();
@@ -14,13 +12,13 @@ namespace DatabaseSandbox {
         }
 
         void start() {
-            StaffDAO staffDAO = new StaffDAO();
+            Logger logger = Logger.create();
+            logger.logLine("Main", "Starting");
 
-            staffDAO
-                .getAll()
-                .ForEach(Console.WriteLine);
+            MainSystem mainSystem = new MainSystem();
+            mainSystem.doSomeMainWork();
 
-            Console.WriteLine("Done");
+            logger.logLine("Main", "finishing");
             Console.ReadKey();
         }
     }

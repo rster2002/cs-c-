@@ -13,7 +13,7 @@ namespace Quick {
                 }
 
                 private void internalWriteLines(string path, List<string> lines) {
-                    StreamWriter streamWriter = new StreamWriter(path: path);
+                    StreamWriter streamWriter = new StreamWriter(path);
 
                     foreach (string line in lines) {
                         streamWriter.WriteLine(line);
@@ -23,7 +23,7 @@ namespace Quick {
                 }
 
                 private void internalAppendLines(string path, List<string> lines) {
-                    StreamWriter streamWriter = new StreamWriter(path: path, append: true);
+                    StreamWriter streamWriter = new StreamWriter(path, true);
 
                     foreach (string line in lines) {
                         streamWriter.WriteLine(line);
@@ -50,31 +50,31 @@ namespace Quick {
                 }
 
                 public void writeLines(List<string> lines) {
-                    internalWriteLines(path: filePath, lines: lines);
+                    internalWriteLines(filePath, lines);
                 }
 
                 public void writeLines(string path, List<string> lines) {
-                    internalWriteLines(path: path, lines: lines);
+                    internalWriteLines(path, lines);
                 }
 
                 public void appendLines(List<string> lines) {
-                    internalAppendLines(path: filePath, lines: lines);
+                    internalAppendLines(filePath, lines);
                 }
 
                 public void appendLines(string path, List<string> lines) {
-                    internalAppendLines(path: path, lines: lines);
+                    internalAppendLines(path, lines);
                 }
 
                 public List<string> readToList() {
-                    return internalReadToList(path: filePath);
+                    return internalReadToList(filePath);
                 }
 
                 public List<string> readToList(string path) {
-                    return internalReadToList(path: path);
+                    return internalReadToList(path);
                 }
 
                 private void internalForLines(string path, Action<string> action) {
-                    List<string> lines = internalReadToList(path: path);
+                    List<string> lines = internalReadToList(path);
 
                     foreach (string line in lines) {
                         action(line);
@@ -82,11 +82,11 @@ namespace Quick {
                 }
 
                 public void forLines(Action<string> action) {
-                    internalForLines(path: filePath, action: action);
+                    internalForLines(filePath, action);
                 }
 
                 public void forLines(string path, Action<string> action) {
-                    internalForLines(path: path, action: action);
+                    internalForLines(path, action);
                 }
             }
         }

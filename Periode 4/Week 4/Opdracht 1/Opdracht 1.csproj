@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{703D86FB-9F8C-4A26-B7DA-3DE12AD2DDFC}</ProjectGuid>
+    <ProjectGuid>{1CEB1417-4C54-4C5A-9248-1EA857739D11}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DatabaseSandbox</RootNamespace>
-    <AssemblyName>DatabaseSandbox</AssemblyName>
+    <RootNamespace>Opdracht_1</RootNamespace>
+    <AssemblyName>Opdracht 1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,11 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Quick">
-      <HintPath>..\..\Quick\Quick\bin\Debug\Quick.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,12 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AxeBehaviour.cs" />
+    <Compile Include="BowAndArrowBehaviour.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="IWeaponBehaviour.cs" />
+    <Compile Include="King.cs" />
+    <Compile Include="KnifeBehaviour.cs" />
+    <Compile Include="Knight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLInterface.cs" />
-    <Compile Include="Staff.cs" />
-    <Compile Include="StaffDAO.cs" />
-    <Compile Include="StaffRole.cs" />
+    <Compile Include="Queen.cs" />
+    <Compile Include="SwordBehaviour.cs" />
+    <Compile Include="Troll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

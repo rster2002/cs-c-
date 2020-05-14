@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Quick {
@@ -7,6 +8,7 @@ namespace Quick {
             private string config;
             private string queryString;
             private static string globalConfigString = "";
+
             private Dictionary<string, string> sqlParams = new Dictionary<string, string>();
 
             public SQLInterface() {
@@ -21,12 +23,7 @@ namespace Quick {
                 globalConfigString = input;
             }
 
-            public SQLInterface param(string key, string value) {
-                sqlParams.Add(key, value);
-                return this;
-            }
-
-            public SQLInterface param(string key, int value) {
+            public SQLInterface param(string key, object value) {
                 sqlParams.Add(key, value.ToString());
                 return this;
             }
@@ -37,12 +34,16 @@ namespace Quick {
             }
 
             public SQLInterface line(string queryLine) {
-                this.queryString += " " + queryLine;
+                queryString += " " + queryLine;
                 return this;
             }
 
-            public SQLInterface l(string queryLine) => line(queryLine);
-            public SQLInterface q(string queryString) => query(queryString);
+            public SQLInterface clear() {
+                queryString = null;
+                sqlParams = new Dictionary<string, string>();
+
+                return this;
+            }
 
             private void evaluateParameters(SqlCommand command) {
                 foreach (KeyValuePair<string, string> parameter in sqlParams) {
@@ -52,6 +53,7 @@ namespace Quick {
                 sqlParams = new Dictionary<string, string>();
             }
 
+            public void executeCommand() => executeCommand(queryString);
             public void executeCommand(string query) {
                 using (SqlConnection sqlConnection = new SqlConnection(config)) {
                     sqlConnection.Open();
@@ -60,13 +62,16 @@ namespace Quick {
                     evaluateParameters(command);
 
                     command.ExecuteNonQuery();
+
+                    clear();
                 }
             }
 
-            public List<Dictionary<string, object>> execute() {
+            public List<Dictionary<string, object>> executeSelect() => executeSelect(queryString);
+            public List<Dictionary<string, object>> executeSelect(string query) {
                 using (SqlConnection sqlConnection = new SqlConnection(config)) {
                     sqlConnection.Open();
-                    SqlCommand command = new SqlCommand(queryString, sqlConnection);
+                    SqlCommand command = new SqlCommand(query, sqlConnection);
 
                     List<Dictionary<string, object>> records = new List<Dictionary<string, object>>();
 
@@ -84,15 +89,23 @@ namespace Quick {
                         records.Add(record);
                     }
 
-                    queryString = null;
+                    clear();
 
                     return records;
                 }
             }
 
+            public List<Dictionary<string, object>> execute() => execute(queryString);
             public List<Dictionary<string, object>> execute(string query) {
-                queryString = query;
-                return execute();
+                List<Dictionary<string, object>> returnValue = new List<Dictionary<string, object>>();
+
+                if (queryString.Contains("SELECT") && queryString.Contains("FROM")) {
+                    returnValue = executeSelect(query);
+                } else {
+                    executeCommand(query);
+                }
+
+                return returnValue;
             }
         }
     }
