@@ -10,15 +10,34 @@ namespace Opdracht_2 {
         private IATMState state;
         public decimal amountInMachine;
 
+        private IATMState noCardState;
+        private IATMState noCashState;
+        private IATMState correctPinState;
+        private IATMState cardPresentState;
+
         public ATMMachine(decimal cashAmount) {
             amountInMachine = cashAmount;
-            state = new NoCardState(this);
-        }
 
-        public void InsertCard() => state.InsertCard();
-        public void RejectCard() => state.RejectCard();
-        public void EnterPincode(int pin) => state.EnterPincode(pin);
-        public void WithdrawCash(int amount) => state.WithdrawCash(amount);
+            // Initialize states
+            noCardState = new NoCardState(this);
+            noCashState = new NoCashState(this);
+            correctPinState = new CorrectPinState(this);
+            cardPresentState = new CardPresentState(this);
+
+            // Set initial state
+            if (amountInMachine > 0) state = noCardState;
+            else state = noCashState;
+        }
+        
+        public IATMState getNoCardState() => noCardState;
+        public IATMState getNoCashState() => noCashState;
+        public IATMState getCorrectPinState() => correctPinState;
+        public IATMState getCardPresentState() => cardPresentState;
+
+        public void insertCard() => state.insertCard();
+        public void rejectCard() => state.rejectCard();
+        public void enterPincode(int pin) => state.enterPincode(pin);
+        public void withdrawCash(int amount) => state.withdrawCash(amount);
 
         public void setState(IATMState state) {
             this.state = state;

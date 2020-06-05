@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Opdracht_2 {
     public interface IATMState {
-        void InsertCard();
-        void RejectCard();
-        void EnterPincode(int pin);
-        void WithdrawCash(int amount);
+        void insertCard();
+        void rejectCard();
+        void enterPincode(int pin);
+        void withdrawCash(int amount);
     }
 }

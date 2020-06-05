@@ -14,20 +14,20 @@ namespace Opdracht_2 {
             this.machine = machine;
         }
 
-        public void EnterPincode(int pin) {
+        public void enterPincode(int pin) {
             Console.WriteLine("You have to insert a card first");
         }
 
-        public void InsertCard() {
+        public void insertCard() {
             Console.WriteLine("Please enter your pincode");
-            machine.setState(new CardPresentState(machine));
+            machine.setState(machine.getCardPresentState());
         }
 
-        public void RejectCard() {
+        public void rejectCard() {
             Console.WriteLine("Could not reject card (no card present)");
         }
 
-        public void WithdrawCash(int amount) {
+        public void withdrawCash(int amount) {
             Console.WriteLine("Cannot withdraw cash without a valid card");
         }
     }

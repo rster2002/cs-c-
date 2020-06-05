@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Opdracht_2 {
     class NoCashState: IATMState {
@@ -12,20 +8,22 @@ namespace Opdracht_2 {
             this.machine = machine;
         }
 
-        public void EnterPincode(int pin) {
-            throw new NotImplementedException();
+        public void enterPincode(int pin) {
+            Console.WriteLine("You've already enter your pin");
         }
 
-        public void InsertCard() {
-            throw new NotImplementedException();
+        public void insertCard() {
+            Console.WriteLine("There is already a card present");
         }
 
-        public void RejectCard() {
-            throw new NotImplementedException();
+        public void rejectCard() {
+            Console.WriteLine("Your card got rejected");
+            machine.setState(machine.getNoCardState());
         }
 
-        public void WithdrawCash(int amount) {
-            throw new NotImplementedException();
+        public void withdrawCash(int amount) {
+            Console.WriteLine("No cash in machine");
+            rejectCard();
         }
     }
 }

@@ -13,26 +13,26 @@ namespace Opdracht_2 {
             this.machine = machine;
         }
 
-        public void EnterPincode(int pin) {
+        public void enterPincode(int pin) {
             if (pin == 1234) {
                 Console.WriteLine("Entered valid pin");
-                machine.setState(new CorrectPinState(machine));
+                machine.setState(machine.getCorrectPinState());
             } else {
                 Console.WriteLine("Invalid pin. Rejecting card...");
-                machine.setState(new NoCardState(machine));
+                machine.setState(machine.getNoCardState());
             }
         }
 
-        public void InsertCard() {
+        public void insertCard() {
             Console.WriteLine("There is already a card present");
         }
 
-        public void RejectCard() {
-            Console.WriteLine("Card was rejected");
-            machine.setState(new NoCardState(machine));
+        public void rejectCard() {
+            Console.WriteLine("Card got rejected");
+            machine.setState(machine.getNoCardState());
         }
 
-        public void WithdrawCash(int amount) {
+        public void withdrawCash(int amount) {
             Console.WriteLine("You have to enter a pin first");
         }
     }

@@ -14,16 +14,16 @@ namespace Opdracht_2 {
         void start() {
             ATMMachine machine = new ATMMachine(2000);
 
-            machine.InsertCard();
-            machine.RejectCard();
+            machine.insertCard();
+            machine.rejectCard();
 
-            machine.InsertCard();
-            machine.EnterPincode(1234);
-            machine.WithdrawCash(1500);
+            machine.insertCard();
+            machine.enterPincode(1234);
+            machine.withdrawCash(1500);
 
-            machine.InsertCard();
-            machine.EnterPincode(1234);
-            machine.WithdrawCash(750);
+            machine.insertCard();
+            machine.enterPincode(1234);
+            machine.withdrawCash(750);
 
             Console.ReadKey();
         }
