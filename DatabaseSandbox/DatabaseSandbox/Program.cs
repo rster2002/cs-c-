@@ -16,9 +16,7 @@ namespace DatabaseSandbox {
         void start() {
             StaffDAO staffDAO = new StaffDAO();
 
-            staffDAO
-                .getAll()
-                .ForEach(Console.WriteLine);
+            staffDAO.UseStaff();
 
             Console.WriteLine("Done");
             Console.ReadKey();

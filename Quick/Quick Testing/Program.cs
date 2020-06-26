@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Quick.SQLInterface;
+
 
 namespace Quick_Testing {
     class Program {
         static void Main(string[] args) {
-            SQLInterface.setGlobalConfigString(ConfigurationManager.ConnectionStrings["sandbox"].ConnectionString);
+            SQLConfig.SetConnectionString(ConfigurationManager.ConnectionStrings["sandbox"].ConnectionString);
 
             Program program = new Program();
             program.start();
@@ -17,14 +20,21 @@ namespace Quick_Testing {
 
         void start() {
             UserDAO userDAO = new UserDAO();
-            List<User> users = userDAO.getAll();
+            Stopwatch stopwatch = new Stopwatch();
+
+            Console.WriteLine("Starting timer");
+            stopwatch.Start();
+
+            List<User> users = userDAO.GetAll();
+
+            userDAO.GetAll();
 
             foreach (User user in users) {
                 Console.WriteLine("{0}: {1}", user.username, user.salt);
             }
 
-            User admin = userDAO.getById(2);
-            Console.WriteLine("{0}: {1}", admin.username, admin.salt);
+            stopwatch.Stop();
+            Console.WriteLine("Stopped timer: " + stopwatch.ElapsedMilliseconds);
 
             Console.ReadKey();
         }

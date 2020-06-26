@@ -7,33 +7,28 @@ using Quick.SQLInterface;
 using System.IO;
 
 namespace Quick_Testing {
-    public class UserDAO: SQLInterface {
-        public List<int> numbers = new List<int>();
-
-        public List<User> getAll() {
-            line("SELECT *");
-            line("FROM Users");
-
-            return recordsToUsers(execute());
+    public class UserDAO: SQLInterface<User> {
+        private void BasicSelect() {
+            Line("SELECT *");
+            Line("FROM [Users];");
         }
 
-        public User getById(int id) {
-            line("SELECT *");
-            line("FROM Users");
-            line("WHERE UserId = @id");
+        public override List<User> GetAll() {
+            BasicSelect();
 
-            param("id", id);
-
-            return recordToUser(execute()[0]);
+            return Execute();
         }
 
-        private List<User> recordsToUsers(List<Dictionary<string, object>> records) {
-            return records
-                .Select(recordToUser)
-                .ToList();
+        public override User GetById(int id) {
+            BasicSelect();
+            Line("WHERE [UserId] = @id");
+
+            Param("id", id);
+
+            return Execute()[0];
         }
 
-        private User recordToUser(Dictionary<string, object> record) {
+        protected override User ProcessRecord(Record record) {
             return new User() {
                 username = (string) record["Username"],
                 salt = (int) record["Salt"]

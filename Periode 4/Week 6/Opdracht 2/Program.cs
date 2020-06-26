@@ -1,9 +1,5 @@
 ﻿using Opdracht_1;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Opdracht_2 {
     class Program {
@@ -23,7 +19,6 @@ namespace Opdracht_2 {
             ComputerShop crappyComputerShop = new ComputerShop(new LowBudgetFactory());
             crappyComputerShop.buildComputer();
             crappyComputerShop.runComputer();
-
 
             Console.ReadKey();
         }

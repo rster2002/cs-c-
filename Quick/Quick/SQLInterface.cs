@@ -1,112 +1,141 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Configuration;
 
 namespace Quick {
     namespace SQLInterface {
-        public class SQLInterface {
+        public static class SQLConfig {
+            public static string configString;
+
+            public static void SetConnectionString(string connectionString) {
+                configString = connectionString;
+            }
+        }
+
+        public abstract class SQLInterface<T> {
             private string config;
             private string queryString;
-            private static string globalConfigString = "";
+            private SqlConnection sqlConnection;
 
-            private Dictionary<string, string> sqlParams = new Dictionary<string, string>();
+            private Dictionary<string, object> sqlParams = new Dictionary<string, object>();
 
             public SQLInterface() {
-                config = globalConfigString;
+                config = SQLConfig.configString;
+                sqlConnection = new SqlConnection(config);
+
+                sqlConnection.Open();
             }
 
-            public SQLInterface(string connectionString) {
-                config = connectionString;
+            protected Dictionary<string, object> Param(string key, object value) {
+                sqlParams.Add(key, value);
+                return sqlParams;
             }
 
-            public static void setGlobalConfigString(string input) {
-                globalConfigString = input;
-            }
-
-            public SQLInterface param(string key, object value) {
-                sqlParams.Add(key, value.ToString());
-                return this;
-            }
-
-            public SQLInterface query(string queryString) {
-                this.queryString = queryString;
-                return this;
-            }
-
-            public SQLInterface line(string queryLine) {
+            protected string Line(string queryLine) {
                 queryString += " " + queryLine;
-                return this;
+                return queryString;
             }
 
-            public SQLInterface clear() {
+            protected string Query(string queryString) {
+                this.queryString = queryString;
+                return this.queryString;
+            }
+
+            protected void Clear() {
                 queryString = null;
-                sqlParams = new Dictionary<string, string>();
-
-                return this;
+                sqlParams = new Dictionary<string, object>();
             }
 
-            private void evaluateParameters(SqlCommand command) {
-                foreach (KeyValuePair<string, string> parameter in sqlParams) {
+            private void EvaluateParameters(SqlCommand command) {
+                foreach (KeyValuePair<string, object> parameter in sqlParams) {
                     command.Parameters.AddWithValue("@" + parameter.Key, parameter.Value);
                 }
 
-                sqlParams = new Dictionary<string, string>();
+                sqlParams = new Dictionary<string, object>();
             }
 
-            public void executeCommand() => executeCommand(queryString);
-            public void executeCommand(string query) {
-                using (SqlConnection sqlConnection = new SqlConnection(config)) {
+            protected void ExecuteCommand() => ExecuteCommand(queryString);
+            protected void ExecuteCommand(string query) {
+                try {
                     sqlConnection.Open();
                     SqlCommand command = new SqlCommand(query, sqlConnection);
 
-                    evaluateParameters(command);
+                    EvaluateParameters(command);
 
                     command.ExecuteNonQuery();
-
-                    clear();
+                } finally {
+                    Clear();
                 }
             }
 
-            public List<Dictionary<string, object>> executeSelect() => executeSelect(queryString);
-            public List<Dictionary<string, object>> executeSelect(string query) {
-                using (SqlConnection sqlConnection = new SqlConnection(config)) {
-                    sqlConnection.Open();
+            protected List<Record> ExecuteSelect() => ExecuteSelect(queryString);
+            protected List<Record> ExecuteSelect(string query) {
+                try {
                     SqlCommand command = new SqlCommand(query, sqlConnection);
 
-                    List<Dictionary<string, object>> records = new List<Dictionary<string, object>>();
+                    List<Record> records = new List<Record>();
 
-                    evaluateParameters(command);
+                    EvaluateParameters(command);
 
-                    SqlDataReader reader = command.ExecuteReader();
+                    using (SqlDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            Record record = new Record();
+                            record.fieldCount = reader.FieldCount;
 
-                    while (reader.Read()) {
-                        Dictionary<string, object> record = new Dictionary<string, object>();
+                            for (int i = 0; i < reader.FieldCount; i++) {
+                                record[reader.GetName(i)] = reader.GetValue(i);
+                            }
 
-                        for (int i = 0; i < reader.FieldCount; i++) {
-                            record[reader.GetName(i)] = reader.GetValue(i);
+                            records.Add(record);
                         }
 
-                        records.Add(record);
+                        return records;
                     }
-
-                    clear();
-
-                    return records;
+                } finally {
+                    Clear();
                 }
             }
 
-            public List<Dictionary<string, object>> execute() => execute(queryString);
-            public List<Dictionary<string, object>> execute(string query) {
-                List<Dictionary<string, object>> returnValue = new List<Dictionary<string, object>>();
+            protected List<Record> ExecuteUnprocessed() => ExecuteUnprocessed(queryString);
+            protected List<Record> ExecuteUnprocessed(string query) {
+                List<Record> returnValue = new List<Record>();
 
-                if (queryString.Contains("SELECT") && queryString.Contains("FROM")) {
-                    returnValue = executeSelect(query);
+                if (query.Contains("SELECT") && query.Contains("FROM")) {
+                    returnValue = ExecuteSelect(query);
                 } else {
-                    executeCommand(query);
+                    ExecuteCommand(query);
                 }
 
                 return returnValue;
             }
+
+
+            protected List<T> Execute() => ProcessRecords(ExecuteUnprocessed(queryString));
+            protected List<T> ExecuteQuery(string query) => ProcessRecords(ExecuteUnprocessed(query));
+            protected List<T> ExecuteUsing(Func<Record, T> processFunction) {
+                return ExecuteUnprocessed(queryString)
+                    .Select(processFunction)
+                    .ToList();
+            }
+            protected List<T> ExecuteUsing(Func<List<Record>, List<T>> recordsFunction) {
+                return recordsFunction(ExecuteUnprocessed());
+            }
+
+            public virtual List<T> ProcessRecords(List<Record> records) {
+                return records
+                    .Select(ProcessRecord)
+                    .ToList();
+            }
+
+            protected abstract T ProcessRecord(Record record);
+            public abstract List<T> GetAll();
+            public abstract T GetById(int id);
+        }
+
+        public class Record: Dictionary<string, object> {
+            public int fieldCount;
         }
     }
 }
