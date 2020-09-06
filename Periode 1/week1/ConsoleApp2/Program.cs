@@ -14,7 +14,7 @@ namespace ConsoleApp2
             Console.WriteLine("Give your age:");
             int age = int.Parse(Console.ReadLine());
 
-            age *= 10;
+            age += 1;
 
             Console.WriteLine("Next year your age is " + age.ToString());
 
